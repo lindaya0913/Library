@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>library</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="controller.js"></script>
+    <style>
+        .world_map_container {
+            position: relative;
+            max-width: 80vw;
+        }
+        .world_map {
+            width: 100%;
+            position: relative;
+        }
+        .area {
+            position: absolute;
+        }
+        /* 點點 */
+        .area_dot {
+            height: 5px;
+            width: 5px;
+            position: absolute;
+            background-color: rgb(211, 44, 44);
+            z-index: 20;
+            border-radius: 100%;
+            transform: translate(-50%,-50%);
+            cursor: pointer;
+        }
+        /* 點點的訊息 */
+        .area_info_container {
+            position: absolute;
+            /* border: 1px blue solid; */
+            border-radius: 8px;
+            transform: translate(-50%, -110%);
+            opacity: 0;
+            transition: ease-in-out;
+            transition-duration: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #141f2a;
+            padding: 10px 20px;
+            white-space: nowrap;
+            visibility:hidden;
+            z-index: 50;
+        }
+        /* 點點+點點的訊息 */
+        .area_dot:hover + .area_info_container {
+            opacity: 0.8;
+            visibility: visible;
+        }
+        /* 點點的訊息內容 */
+        .area_info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            line-height: 200%;
+        }
+        .button {
+            padding: 6px 16px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 12px;
+            font-family: Microsoft JhengHei;
+        }
+        .btn-group .button:hover {
+            background-color: #3e8e41;
+        }
+        body {
+            font-family: Microsoft JhengHei;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+    <script src="controller.js"></script>
+    <div class="btn-group">
+        <button class="button" onclick="location.href='page1.php'">回目錄</button>
+        <button class="button" onclick="location.href='page3.php?task=<?php echo $url ?>'">詳細資訊</button>
+    </div>
+    <table id="table_id1" class="center" style="width:100%">
+        <thead>
+            <tr>
+                <th>權限風險</th>
+                <th>廣告供應商</th>
+                <th>權限名稱</th>
+                <th>Access request</th>
+            </tr>
+        </thead>
+        <tbody id="tbody_id1">
+        </tbody>
+    </table>
+    <h3 id="status"> 
+        Status 
+    </h3> 
+</body>
+</html>
