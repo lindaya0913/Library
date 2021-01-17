@@ -87,16 +87,34 @@
 <body>
     <script src="controller.js"></script>
     <div class="btn-group">
-        <button class="button" onclick="location.href='page1.php'">回目錄</button>
-        <button class="button" onclick="location.href='page3.php?task=<?php echo $url ?>'">詳細資訊</button>
+        <select>
+            <option>請選擇年分</option>
+            <option>2013</option>
+            <option>2014</option>
+            <option>2015</option>
+            <option>2016</option>
+            <option>2017</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+        </select>
     </div>
+    <canvas id="myChart" width=”1000px” height=”600px”></canvas>
     <table id="table_id1" class="center" style="width:100%">
         <thead>
             <tr>
-                <th>權限風險</th>
-                <th>廣告供應商</th>
-                <th>權限名稱</th>
-                <th>Access request</th>
+                <th>1月</th>
+                <th>2月</th>
+                <th>3月</th>
+                <th>4月</th>
+                <th>5月</th>
+                <th>6月</th>
+                <th>7月</th>
+                <th>8月</th>
+                <th>9月</th>
+                <th>10月</th>
+                <th>11月</th>
+                <th>12月</th>
             </tr>
         </thead>
         <tbody id="tbody_id1">
