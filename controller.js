@@ -48,7 +48,7 @@ window.onload = function () {
             var select = document.getElementById("select").value
             var trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '',
                 trStr7 = '', trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', total=''
-            var total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
+            var alltotal = 0, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
                 total7 = 0, total8 = 0, total9 = 0, total10 = 0, total11 = 0, total12 = 0
             console.log(select);
             //year2020
@@ -141,12 +141,11 @@ window.onload = function () {
                 } 
             }
             // console.log("select", select);
-            // document.getElementById("status").innerHTML = "1月: " + total1 + " ;2月: "+ total2 +" ;3月: "+ total3 +
-            //     " ;4月: "+ total4 +" ;5月: "+ total5 +" ;6月: "+ total6 +" ;7月: "+ total7 +" ;8月: "+ total8 +
-            //     " ;9月: "+ total9 +" ;10月: "+ total10 +" ;11月: "+ total11 +" ;12月: "+ total12;
-
+            // document.getElementById("status").innerHTML = 
+            alltotal=total1+total2+total3+total4+total5+total6+total7+total8+total9+total10+total11+total12;
             total += '<tr>';  
-            total += '<td>' + total1 + '</td>';//資料表的主鍵值
+            total += '<td>' + alltotal + '</td>';
+            total += '<td>' + total1 + '</td>';
             total += '<td>' + total2 + '</td>';
             total += '<td>' + total3 + '</td>';
             total += '<td>' + total4 + '</td>';
@@ -159,8 +158,9 @@ window.onload = function () {
             total += '<td>' + total11 + '</td>';
             total += '<td>' + total12 + '</td>';
             total += '</tr>';  
+            //total table
             $('#total_body').append(total);
-            //table
+            //12 tables
             $('#tbody_id1').append(trStr1);
             $('#table_id1').DataTable({
                 "order": [ 0, 'asc' ],
@@ -209,14 +209,14 @@ window.onload = function () {
             $('#table_id12').DataTable({
                 "order": [ 0, 'asc' ],
             });
-
+            //chart
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
                     datasets: [{
-                        label: '電子書視覺化統計',
+                        label: '電子書使用次數',
                         data: [total1,total2,total3,total4,total5,total6,total7,total8,total9,total10,total11,total2],
                         fill: false,
                         backgroundColor: 'rgba(212, 106, 106, 1)',
@@ -231,4 +231,3 @@ window.onload = function () {
         }
     }
 }
-

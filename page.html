@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>library</title>
+    <title>Library</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
@@ -38,7 +38,6 @@
         .btn-group .button:hover {
             background-color: #3e8e41;
         }
-
         .col{
             position:relative;
             width:100%;
@@ -79,7 +78,6 @@
             color: white;
             cursor: pointer;  
         }
-
         table.dataTable tbody tr:nth-child(even) {background-color: #ddd;}
         .center {
             margin-left: auto;
@@ -88,14 +86,13 @@
         table.dataTable tbody tr:hover {
             background-color: #ffa;
         }
-
         input {
             background-image: url("images/search.png");
             background-position: 10px 10px;
             background-repeat: no-repeat;
             background-size: 25px 25px;
             font-size: 14px;
-            padding: 12px 1px 12px 1px;
+            padding: 5px 5px 5px 5px;
             border: 1px solid #ddd;
             margin-bottom: 5px;
         }
@@ -113,7 +110,6 @@
     </style>
 </head>
 <body>
-    <script src="controller.js"></script>
     <form>
         <select id="select">
             <option value="2013">2020</option>
@@ -136,6 +132,7 @@
     </div>
     <table id="total">
         <tr>
+          <th>Total</th>
           <th>1月</th>
           <th>2月</th>
           <th>3月</th>
@@ -153,7 +150,7 @@
         </tbody>
     </table>
     <p id="status"></p> 
-    <canvas id="myChart" width="100vw" height="100vh"></canvas>
+    <canvas id="myChart" width="900" height="300"></canvas>
     <div class="d-flex justify-content-around">
         <div class="col">
             <table id="table_id1">
@@ -310,6 +307,5 @@
             </table>
         </div>
     </div>
-
 </body>
 </html>
