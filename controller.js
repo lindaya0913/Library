@@ -47,8 +47,9 @@ window.onload = function () {
 
             var select = document.getElementById("select").value
             var trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '',
-                trStr7 = '', trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = ''
-            var ll = 0
+                trStr7 = '', trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', total=''
+            var total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
+                total7 = 0, total8 = 0, total9 = 0, total10 = 0, total11 = 0, total12 = 0
             console.log(select);
             //year2020
             if (select = "2020"){
@@ -58,78 +59,107 @@ window.onload = function () {
                         trStr1 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr1 += '<td>' + year20[l].times + '</td>';
                         trStr1 += '</tr>';  
+                        total1 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/02/')){
                         trStr2 += '<tr>';  
                         trStr2 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr2 += '<td>' + year20[l].times + '</td>';
                         trStr2 += '</tr>';  
+                        total2 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/03/')){
                         trStr3 += '<tr>';  
                         trStr3 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr3 += '<td>' + year20[l].times + '</td>';
-                        trStr3 += '</tr>';  
+                        trStr3 += '</tr>'; 
+                        total3 += parseInt(year20[l].times) 
                     }
                     if(year20[l].year.match('/04/')){
                         trStr4 += '<tr>';  
                         trStr4 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr4 += '<td>' + year20[l].times + '</td>';
                         trStr4 += '</tr>';  
+                        total4 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/05/')){
                         trStr5 += '<tr>';  
                         trStr5 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr5 += '<td>' + year20[l].times + '</td>';
                         trStr5 += '</tr>';  
+                        total5 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/06/')){
                         trStr6 += '<tr>';  
                         trStr6 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr6 += '<td>' + year20[l].times + '</td>';
                         trStr6 += '</tr>';  
+                        total6 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/07/')){
                         trStr7 += '<tr>';  
                         trStr7 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr7 += '<td>' + year20[l].times + '</td>';
                         trStr7 += '</tr>';  
+                        total7 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/08/')){
                         trStr8 += '<tr>';  
                         trStr8 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr8 += '<td>' + year20[l].times + '</td>';
                         trStr8 += '</tr>';  
+                        total8 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/09/')){
                         trStr9 += '<tr>';  
                         trStr9 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr9 += '<td>' + year20[l].times + '</td>';
                         trStr9 += '</tr>';  
+                        total9 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/10/')){
                         trStr10 += '<tr>';  
                         trStr10 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr10 += '<td>' + year20[l].times + '</td>';
                         trStr10 += '</tr>';  
+                        total10 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/11/')){
                         trStr11 += '<tr>';  
                         trStr11 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr11 += '<td>' + year20[l].times + '</td>';
                         trStr11 += '</tr>';  
+                        total11 += parseInt(year20[l].times)
                     }
                     if(year20[l].year.match('/12/')){
                         trStr12 += '<tr>';  
                         trStr12 += '<td>' + year20[l].year + '</td>';//資料表的主鍵值
                         trStr12 += '<td>' + year20[l].times + '</td>';
                         trStr12 += '</tr>';  
+                        total12 += parseInt(year20[l].times)
                     }
                 } 
             }
             // console.log("select", select);
-            // document.getElementById("status").innerHTML = splitResponse; 
+            // document.getElementById("status").innerHTML = "1月: " + total1 + " ;2月: "+ total2 +" ;3月: "+ total3 +
+            //     " ;4月: "+ total4 +" ;5月: "+ total5 +" ;6月: "+ total6 +" ;7月: "+ total7 +" ;8月: "+ total8 +
+            //     " ;9月: "+ total9 +" ;10月: "+ total10 +" ;11月: "+ total11 +" ;12月: "+ total12; 
 
+            total += '<tr>';  
+            total += '<td>' + total1 + '</td>';//資料表的主鍵值
+            total += '<td>' + total2 + '</td>';
+            total += '<td>' + total3 + '</td>';
+            total += '<td>' + total4 + '</td>';
+            total += '<td>' + total5 + '</td>';
+            total += '<td>' + total6 + '</td>';
+            total += '<td>' + total7 + '</td>';
+            total += '<td>' + total8 + '</td>';
+            total += '<td>' + total9 + '</td>';
+            total += '<td>' + total10 + '</td>';
+            total += '<td>' + total11 + '</td>';
+            total += '<td>' + total12 + '</td>';
+            total += '</tr>';  
+            $('#total_body').append(total);
             //table
             $('#tbody_id1').append(trStr1);
             $('#table_id1').DataTable({
