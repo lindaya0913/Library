@@ -143,7 +143,7 @@ window.onload = function () {
             // console.log("select", select);
             // document.getElementById("status").innerHTML = "1月: " + total1 + " ;2月: "+ total2 +" ;3月: "+ total3 +
             //     " ;4月: "+ total4 +" ;5月: "+ total5 +" ;6月: "+ total6 +" ;7月: "+ total7 +" ;8月: "+ total8 +
-            //     " ;9月: "+ total9 +" ;10月: "+ total10 +" ;11月: "+ total11 +" ;12月: "+ total12; 
+            //     " ;9月: "+ total9 +" ;10月: "+ total10 +" ;11月: "+ total11 +" ;12月: "+ total12;
 
             total += '<tr>';  
             total += '<td>' + total1 + '</td>';//資料表的主鍵值
@@ -211,21 +211,23 @@ window.onload = function () {
             });
 
             var ctx = document.getElementById('myChart').getContext('2d');
-            // var chart = new Chart(ctx, {
-            //     type: 'line',
-            //     data: {
-            //     labels: data.map(x=>x.Time.slice(11,16)),
-            //     datasets: [{
-            //         label: '交通量',
-            //         data: data.map(x=>x.Volume),
-            //         // ... 待會美化的部分加在這裡
-            //     }]
-            //     },
-            //     options: {
-            //     responsive: false    
-            //     // ... 圖表標題和圖例在這裡修改
-            //     }
-            // });
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+                    datasets: [{
+                        label: '電子書視覺化統計',
+                        data: [total1,total2,total3,total4,total5,total6,total7,total8,total9,total10,total11,total2],
+                        fill: false,
+                        backgroundColor: 'rgba(212, 106, 106, 1)',
+                        borderColor: 'rgba(212, 106, 106, 1)'
+                    }]
+                },
+                options: {
+                responsive: false    
+                // ... 圖表標題和圖例在這裡修改
+                }
+            });
         }
     }
 }
