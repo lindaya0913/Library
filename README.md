@@ -4,3 +4,5 @@
    無日期者，該日顯示為 0。同日期者，需加總，僅呈現一筆資料。
 2. 需有選單，可選擇年度，選擇後呈現該年度資料。
 3. 如果可以的話，看能不能做到，匯出 CSV 檔的功能(全部資料即可)。
+
+![image](https://github.com/lindaya0913/Library/blob/main/library.png)
