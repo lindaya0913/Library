@@ -611,51 +611,160 @@ window.onload = function () {
             //12 tables
             $('#tbody_id1').append(trStr1);
             $('#table_id1').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id2').append(trStr2);
             $('#table_id2').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        charset:   'UTF-8',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id3').append(trStr3);
             $('#table_id3').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id4').append(trStr4);
             $('#table_id4').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id5').append(trStr5);
             $('#table_id5').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id6').append(trStr6);
             $('#table_id6').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id7').append(trStr7);
             $('#table_id7').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id8').append(trStr8);
             $('#table_id8').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id9').append(trStr9);
             $('#table_id9').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id10').append(trStr10);
             $('#table_id10').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id11').append(trStr11);
             $('#table_id11').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
             $('#tbody_id12').append(trStr12);
             $('#table_id12').DataTable({
-                "order": [ 0, 'asc' ],
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
             });
 
             //chart
