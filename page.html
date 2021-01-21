@@ -15,296 +15,219 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="controller.js"></script>
-    <style>
-        h2 {
-            background-color: black;
-            color: white;
-            text-align: center;
-            margin-bottom: 5px;
-        }
-        body {
-            font-family: Microsoft JhengHei;
-            font-size: 14px;
-            margin: 8px;
-        }
-        .button {
-            padding: 6px 16px;
-            text-align: center;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 12px;
-            margin-bottom: 5px;
-        }
-        .btn-group .button:hover {
-            background-color: #3e8e41;
-        }
-        .col{
-            position:relative;
-            width:100%;
-            padding-right:15px;
-            padding-left:15px;
-            -ms-flex-preferred-size:0;
-            flex-basis:0;
-            flex-grow:1;
-            max-width:100%
-        }
-        table {
-            border-collapse: collapse;
-            border: 1px solid black;
-            width:100%;
-            word-wrap: break-word;
-            table-layout: fixed;
-        }
-        th { 
-            background-color: #009FCC;
-            padding:10px;
-            border:1px solid #000;
-            color:#fff;
-        } 
-        td { 
-            border:1px solid #000;
-            padding:5px;
-        } 
-        table.dataTable td { /*表*/
-            border: 1px solid #000;
-            padding: 3px;
-        }
-        table.dataTable th { /*表頭*/
-            border-collapse: collapse;
-            border: 1px solid #000;
-            padding: 3px;
-            text-align: left;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;  
-        }
-        table.dataTable tbody tr:nth-child(even) {background-color: #ddd;}
-        .center {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        table.dataTable tbody tr:hover {
-            background-color: #ffa;
-        }
-        input {
-            background-image: url("images/search.png");
-            background-position: 10px 10px;
-            background-repeat: no-repeat;
-            background-size: 25px 25px;
-            font-size: 14px;
-            padding: 5px 5px 5px 5px;
-            border: 1px solid #ddd;
-            margin-bottom: 5px;
-        }
-        select {
-            height: 30px;
-        }
-        #table_id1_length {
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        #table_id2_length {
-            margin-top: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <form>
-        <select id="select">
-            <option value="2013">2020</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-        </select>
-    </form>
-    <div class="btn-group">
-        <button class="button" onclick="Table13()">2013</button>
-        <button class="button" onclick="Table17()">2017</button>
-        <button class="button" onclick="Table18()">2018</button>
-        <button class="button" onclick="Table19()">2019</button>
-        <button class="button" onclick="Table20()">2020</button>
-        <button class="button" onclick="Table21()">2021</button>
-    </div>
-    <table id="total">
-        <tr>
-          <th>Total</th>
-          <th>1月</th>
-          <th>2月</th>
-          <th>3月</th>
-          <th>4月</th>
-          <th>5月</th>
-          <th>6月</th>
-          <th>7月</th>
-          <th>8月</th>
-          <th>9月</th>
-          <th>10月</th>
-          <th>11月</th>
-          <th>12月</th>
-        </tr>
-        <tbody id="total_body">
-        </tbody>
-    </table>
-    <p id="status"></p> 
-    <canvas id="myChart" width="900" height="300"></canvas>
-    <div class="d-flex justify-content-around">
-        <div class="col">
-            <table id="table_id1">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>1月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1 col-sm-2">
+                <h3 id="status"></h3> 
+            </div>
+            <div class="col">
+                <form name="form" action="page.html?year" method="get">
+                    <select id="select" name="year">
+                        <option value="2013">2013</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                    </select>
+                    <button class="btn btn-primary" type='submit'>Sent</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <table id="total">
+                <tr>
+                  <th>Total</th>
+                  <th>1月</th>
+                  <th>2月</th>
+                  <th>3月</th>
+                  <th>4月</th>
+                  <th>5月</th>
+                  <th>6月</th>
+                  <th>7月</th>
+                  <th>8月</th>
+                  <th>9月</th>
+                  <th>10月</th>
+                  <th>11月</th>
+                  <th>12月</th>
+                </tr>
+                <tbody id="total_body">
                 </tbody>
             </table>
         </div>
-        <div class="col">
-            <table id="table_id2">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>2月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id2">
-                </tbody>
-            </table>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
         </div>
-    </div>
-    <div class="d-flex justify-content-around">
-        <div class="col">
-            <table id="table_id3">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>3月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id3">
-                </tbody>
-            </table>
+        <div class="d-flex justify-content-around">
+            <div class="row">
+                <div class="col">
+                    <table id="table_id1">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>1月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id1">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table id="table_id2">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>2月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id2">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <table id="table_id4">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>4月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id4">
-                </tbody>
-            </table>
+        <div class="d-flex justify-content-around">
+            <div class="row">
+                <div class="col">
+                    <table id="table_id3">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>3月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id3">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table id="table_id4">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>4月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id4">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-around">
-        <div class="col">
-            <table id="table_id5">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>5月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id5">
-                </tbody>
-            </table>
+        <div class="d-flex justify-content-around">
+            <div class="row">
+                <div class="col">
+                    <table id="table_id5">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>5月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id5">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table id="table_id6">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>6月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id6">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <table id="table_id6">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>6月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id6">
-                </tbody>
-            </table>
+        <div class="d-flex justify-content-around">
+            <div class="row">
+                <div class="col">
+                    <table id="table_id7">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>7月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id7">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table id="table_id8">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>8月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id8">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-around">
-        <div class="col">
-            <table id="table_id7">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>7月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id7">
-                </tbody>
-            </table>
+        <div class="d-flex justify-content-around">
+            <div class="row">
+                <div class="col">
+                    <table id="table_id9">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>9月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id9">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table id="table_id10">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>10月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id10">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <table id="table_id8">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>8月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id8">
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="d-flex justify-content-around">
-        <div class="col">
-            <table id="table_id9">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>9月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id9">
-                </tbody>
-            </table>
-        </div>
-        <div class="col">
-            <table id="table_id10">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>10月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id10">
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="d-flex justify-content-around">
-        <div class="col">
-            <table id="table_id11">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>11月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id11">
-                </tbody>
-            </table>
-        </div>
-        <div class="col">
-            <table id="table_id12">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>12月</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_id12">
-                </tbody>
-            </table>
+        <div class="d-flex justify-content-around">
+            <div class="row">
+                <div class="col">
+                    <table id="table_id11">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>11月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id11">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table id="table_id12">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>12月</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_id12">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </body>
