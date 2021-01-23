@@ -57,15 +57,18 @@ window.onload = function () {
                 document.getElementById("status").innerHTML = "2013";
             }
             
-
-            //12 tables + 12 totals
-            var trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '',
-                trStr7 = '', trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', total='';
+            //13 tables + 12 totals
+            var trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '', trStr7 = '', 
+            trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', trStr13 = '', total='';
             var alltotal = 0, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
                 total7 = 0, total8 = 0, total9 = 0, total10 = 0, total11 = 0, total12 = 0;
             
             if (queryString == "year=2021"){//year2021
                 for (var l = 0; l < year21.length; l ++) {//迴圈遍歷出year21物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year21[l].times + '</td>';
+                    trStr13 += '</tr>';
                     if(year21[l].date.match('/01/')){
                         trStr1 += '<tr>';  
                         trStr1 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
@@ -153,6 +156,10 @@ window.onload = function () {
                 } 
             } else if (queryString == "year=2020"){//year2020
                 for (var l = 0; l < year20.length; l ++) {//迴圈遍歷出year20物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year20[l].times + '</td>';
+                    trStr13 += '</tr>';
                     if(year20[l].date.match('/01/')){
                         trStr1 += '<tr>';  
                         trStr1 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
@@ -240,6 +247,10 @@ window.onload = function () {
                 } 
             } else if (queryString == "year=2019"){//year2019
                 for (var l = 0; l < year19.length; l ++) {//迴圈遍歷出year19物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year19[l].times + '</td>';
+                    trStr13 += '</tr>';
                     if(year19[l].date.match('/01/')){
                         trStr1 += '<tr>';  
                         trStr1 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
@@ -327,6 +338,10 @@ window.onload = function () {
                 } 
             } else if (queryString == "year=2018"){//year2018
                 for (var l = 0; l < year18.length; l ++) {//迴圈遍歷出year18物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year18[l].times + '</td>';
+                    trStr13 += '</tr>';
                     if(year18[l].date.match('/01/')){
                         trStr1 += '<tr>';  
                         trStr1 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
@@ -414,6 +429,10 @@ window.onload = function () {
                 } 
             } else if (queryString == "year=2017"){//year2017
                 for (var l = 0; l < year17.length; l ++) {//迴圈遍歷出year17物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year17[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year17[l].times + '</td>';
+                    trStr13 += '</tr>';
                     if(year17[l].date.match('/01/')){
                         trStr1 += '<tr>';  
                         trStr1 += '<td>' + year17[l].date + '</td>';//資料表的主鍵值
@@ -501,6 +520,10 @@ window.onload = function () {
                 } 
             } else if (queryString == "" || "year=2013"){//year2013
                 for (var l = 0; l < year13.length; l ++) {//迴圈遍歷出year13物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year13[l].times + '</td>';
+                    trStr13 += '</tr>';
                     if(year13[l].date.match('/01/')){
                         trStr1 += '<tr>';  
                         trStr1 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
@@ -608,7 +631,7 @@ window.onload = function () {
 
             //total table
             $('#total_body').append(total);
-            //12 tables
+            //13 tables
             $('#tbody_id1').append(trStr1);
             $('#table_id1').DataTable({
                 "searching": false,
@@ -755,6 +778,20 @@ window.onload = function () {
             });
             $('#tbody_id12').append(trStr12);
             $('#table_id12').DataTable({
+                "searching": false,
+                dom: 'lBfrtip',
+                buttons: [
+                    {
+                        extend:    'csvHtml5',
+                        bom:        true,
+                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        titleAttr: 'CSV'
+                    }
+                ]
+            });
+            $('#tbody_id13').append(trStr13);
+            $('#table_id13').DataTable({
+                "lengthMenu": [[5, 25, 50, -1], [5, 25, 50, "All"]],
                 "searching": false,
                 dom: 'lBfrtip',
                 buttons: [
