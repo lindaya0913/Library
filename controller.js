@@ -18,6 +18,26 @@ window.onload = function () {
                 data[n] = {"date":date[n], "times":times[n]};
             }
 
+
+            console.log(data);
+            const set = new Set();
+            const result = data.filter(item => !set.has(item.date) ? set.add(item.date) : false);
+            console.log(result); 
+
+            const set2 = new Set();
+            const result2 = data.filter(item => set2.has(JSON.stringify(item.date)) ? true : (set2.add(JSON.stringify(item.date)), false));
+            console.log(result2); 
+            console.log("1", result2[0].date); 
+
+
+            aa = Object.keys(data).find(key => data["date"] === "2017/06/05")
+            console.log(aa); 
+            // for (var n = 0; n < result.length; n ++) {
+            //     if(result["date"] === result2[0].date){
+
+            //     }
+            // }
+
             //分隔年分
             for (var m = 0; m < data.length; m ++) {
                 if(data[m].date.match('2013')){
