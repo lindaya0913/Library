@@ -1,76 +1,80 @@
 window.onload = function () {
-    var txt = "20210106.txt";/*txt文件url，本地的就寫本地的位置，如果是服務器的就寫服務器的路徑*/
-    var request = new XMLHttpRequest();
+    let txt = "20210106.txt";/*txt文件url，本地的就寫本地的位置，如果是服務器的就寫服務器的路徑*/
+    let request = new XMLHttpRequest();
     request.open("get", txt);/*設置請求方法與路徑*/
     request.send(null);/*不發送數據到服務器*/
     request.onload = function () {/*XHR對象獲取到返回信息後執行*/
         if (request.status == 200) {/*返回狀態為200，即為數據獲取成功*/
-            var splitResponse = request.responseText.split("\n");
-            var times = splitResponse.filter((item, index) => index % 2 == 0);
-            var date = splitResponse.filter((item, index) => index % 2 != 0);
-            var data = [];
-            var year13 = [], year17 = [], year18 = [], year19 = [], year20 = [], year21 = [];
-            var a = 0, e = 0, f = 0, g = 0, h = 0, i = 0;
+            let splitResponse = request.responseText.split("\n");/*切割一行一行*/
+            let times = splitResponse.filter((item, index) => index % 2 == 0);/*index偶數為次數*/
+            let date = splitResponse.filter((item, index) => index % 2 != 0);/*index奇數為日期*/
+            let year13 = [], year17 = [], year18 = [], year19 = [], year20 = [], year21 = [];
+            let a = 0, b = 0, c = 0, d = 0, e = 0, f = 0;
             times.shift()/*去掉空格*/
             date = date.map(x => x.slice(1,11))/*選取YYYY/MM/DD*/
 
-            for (var n = 0; n < times.length; n ++) {
+            let data = [];
+            for (let n = 0; n < times.length; n ++) {
                 data[n] = {"date":date[n], "times":times[n]};
             }
 
+            //同日期次數加起來
+            let obj = {};
+            let currentDate = "";
+            let currentTimes = 0;
+            for(let i = 0; i< data.length-1; i++) {
+                if (data[i].date === data[i+1].date) {
+                    currentTimes = (currentTimes === 0 ? parseInt(data[i].times) : currentTimes) + parseInt(data[i+1].times)
+                    currentDate = data[i].date
+                    obj[currentDate] = currentTimes
+                } else {
+                    currentDate = data[i].date
+                    obj[currentDate] = currentTimes !== 0 ? currentTimes : parseInt(data[i].times)
+                    currentTimes = 0
+                    currentDate = ""
+                }
+            }
 
-            console.log(data);
-            const set = new Set();
-            const result = data.filter(item => !set.has(item.date) ? set.add(item.date) : false);
-            console.log(result); 
-
-            const set2 = new Set();
-            const result2 = data.filter(item => set2.has(JSON.stringify(item.date)) ? true : (set2.add(JSON.stringify(item.date)), false));
-            console.log(result2); 
-            console.log("1", result2[0].date); 
-
-
-            aa = Object.keys(data).find(key => data["date"] === "2017/06/05")
-            console.log(aa); 
-            // for (var n = 0; n < result.length; n ++) {
-            //     if(result["date"] === result2[0].date){
-
-            //     }
-            // }
+            let new_data = [];
+            let i = 0;
+            for(key in obj){
+                new_data[i]={"date":key, "times":obj[key]};
+                i += 1;
+            }
 
             //分隔年分
-            for (var m = 0; m < data.length; m ++) {
-                if(data[m].date.match('2013')){
-                    year13[a] = data[m];
+            for (let m = 0; m < new_data.length; m ++) {
+                if(new_data[m].date.match('2013')){
+                    year13[a] = new_data[m];
                     a += 1;
                 }
-                if(data[m].date.match('2017')){
-                    year17[e] = data[m];
+                if(new_data[m].date.match('2017')){
+                    year17[b] = new_data[m];
+                    b += 1;
+                }
+                if(new_data[m].date.match('2018')){
+                    year18[c] = new_data[m];
+                    c += 1;
+                }
+                if(new_data[m].date.match('2019')){
+                    year19[d] = new_data[m];
+                    d += 1;
+                }
+                if(new_data[m].date.match('2020')){
+                    year20[e] = new_data[m];
                     e += 1;
                 }
-                if(data[m].date.match('2018')){
-                    year18[f] = data[m];
+                if(new_data[m].date.match('2021')){
+                    year21[f] = new_data[m];
                     f += 1;
-                }
-                if(data[m].date.match('2019')){
-                    year19[g] = data[m];
-                    g += 1;
-                }
-                if(data[m].date.match('2020')){
-                    year20[h] = data[m];
-                    h += 1;
-                }
-                if(data[m].date.match('2021')){
-                    year21[i] = data[m];
-                    i += 1;
                 }
             }
 
             //判斷選擇哪一年
-            var queryString = decodeURIComponent(window.location.search);
+            let queryString = decodeURIComponent(window.location.search);
             //取得?後的 key 跟 value
             queryString = queryString.substring(1);
-            var queries = queryString.split("=");
+            let queries = queryString.split("=");
             if (queries!=""){
                 document.getElementById("status").innerHTML = queries[1];
             }else{
@@ -78,13 +82,13 @@ window.onload = function () {
             }
             
             //13 tables + 12 totals
-            var trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '', trStr7 = '', 
-            trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', trStr13 = '', total='';
-            var alltotal = 0, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
+            let trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '', trStr7 = '', 
+                trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', trStr13 = '', total = '';
+            let alltotal = 0, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
                 total7 = 0, total8 = 0, total9 = 0, total10 = 0, total11 = 0, total12 = 0;
             
             if (queryString == "year=2021"){//year2021
-                for (var l = 0; l < year21.length; l ++) {//迴圈遍歷出year21物件中的每一個資料並顯示在對應的td中
+                for (let l = 0; l < year21.length; l ++) {//迴圈遍歷出year21物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
                     trStr13 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
                     trStr13 += '<td>' + year21[l].times + '</td>';
@@ -175,7 +179,7 @@ window.onload = function () {
                     }
                 } 
             } else if (queryString == "year=2020"){//year2020
-                for (var l = 0; l < year20.length; l ++) {//迴圈遍歷出year20物件中的每一個資料並顯示在對應的td中
+                for (let l = 0; l < year20.length; l ++) {//迴圈遍歷出year20物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
                     trStr13 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
                     trStr13 += '<td>' + year20[l].times + '</td>';
@@ -266,7 +270,7 @@ window.onload = function () {
                     }
                 } 
             } else if (queryString == "year=2019"){//year2019
-                for (var l = 0; l < year19.length; l ++) {//迴圈遍歷出year19物件中的每一個資料並顯示在對應的td中
+                for (let l = 0; l < year19.length; l ++) {//迴圈遍歷出year19物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
                     trStr13 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
                     trStr13 += '<td>' + year19[l].times + '</td>';
@@ -357,7 +361,7 @@ window.onload = function () {
                     }
                 } 
             } else if (queryString == "year=2018"){//year2018
-                for (var l = 0; l < year18.length; l ++) {//迴圈遍歷出year18物件中的每一個資料並顯示在對應的td中
+                for (let l = 0; l < year18.length; l ++) {//迴圈遍歷出year18物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
                     trStr13 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
                     trStr13 += '<td>' + year18[l].times + '</td>';
@@ -448,7 +452,7 @@ window.onload = function () {
                     }
                 } 
             } else if (queryString == "year=2017"){//year2017
-                for (var l = 0; l < year17.length; l ++) {//迴圈遍歷出year17物件中的每一個資料並顯示在對應的td中
+                for (let l = 0; l < year17.length; l ++) {//迴圈遍歷出year17物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
                     trStr13 += '<td>' + year17[l].date + '</td>';//資料表的主鍵值
                     trStr13 += '<td>' + year17[l].times + '</td>';
@@ -539,7 +543,7 @@ window.onload = function () {
                     }
                 } 
             } else if (queryString == "" || "year=2013"){//year2013
-                for (var l = 0; l < year13.length; l ++) {//迴圈遍歷出year13物件中的每一個資料並顯示在對應的td中
+                for (let l = 0; l < year13.length; l ++) {//迴圈遍歷出year13物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
                     trStr13 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
                     trStr13 += '<td>' + year13[l].times + '</td>';
@@ -631,7 +635,8 @@ window.onload = function () {
                 } 
             }
 
-            alltotal=total1+total2+total3+total4+total5+total6+total7+total8+total9+total10+total11+total12;
+            alltotal = total1 + total2 + total3 + total4 + total5 + total6 + total7 + total8 + total9 + total10
+                    + total11 + total12;
             //total table
             total += '<tr>';  
             total += '<td>' + alltotal + '</td>';
@@ -825,8 +830,8 @@ window.onload = function () {
             });
 
             //chart
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
+            let ctx = document.getElementById('myChart').getContext('2d');
+            let myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
