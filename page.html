@@ -24,19 +24,25 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1 col-sm-2">
-                <h3 id="status"></h3> 
+                <h3 id="status"></h3>  
             </div>
+            <div class="col-md-6 col-sm-10">
+                <h3>電子書使用統計</h3>  
+            </div>
+        </div>
+        <div class="row">
             <div class="col">
                 <form name="form" action="page.html?year" method="get">
-                    <select id="select" name="year">
+                    <label for="year">選擇查詢年分:</label>
+                    <select class="form-select" id="select" name="year">
                         <option value="2013">2013</option>
                         <option value="2017">2017</option>
                         <option value="2018">2018</option>
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
-                        <option value="2021">2021</option>
+                        <option value="2021" selected>2021</option>
                     </select>
-                    <button class="btn btn-primary" type='submit'>Sent</button>
+                    <button class="btn btn-primary btn-sm" type='submit' value="Submit">Sent</button>
                 </form>
             </div>
         </div>

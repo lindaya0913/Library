@@ -78,377 +78,105 @@ window.onload = function () {
             if (queries!=""){
                 document.getElementById("status").innerHTML = queries[1];
             }else{
-                document.getElementById("status").innerHTML = "2013";
+                document.getElementById("status").innerHTML = "2021";
             }
-            
+            console.log("queryString", queryString)
+            console.log("queries", queries)
             //13 tables + 12 totals
             let trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '', trStr7 = '', 
                 trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', trStr13 = '', total = '';
             let alltotal = 0, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
                 total7 = 0, total8 = 0, total9 = 0, total10 = 0, total11 = 0, total12 = 0;
             
-            if (queryString == "year=2021"){//year2021
-                for (let l = 0; l < year21.length; l ++) {//迴圈遍歷出year21物件中的每一個資料並顯示在對應的td中
+            if (queryString == "year=2013"){//year2013
+                for (let l = 0; l < year13.length; l ++) {//迴圈遍歷出year21物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
-                    trStr13 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                    trStr13 += '<td>' + year21[l].times + '</td>';
+                    trStr13 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year13[l].times + '</td>';
                     trStr13 += '</tr>';
-                    if(year21[l].date.match('/01/')){
+                    if(year13[l].date.match('/01/')){
                         trStr1 += '<tr>';  
-                        trStr1 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr1 += '<td>' + year21[l].times + '</td>';
+                        trStr1 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr1 += '<td>' + year13[l].times + '</td>';
                         trStr1 += '</tr>';  
-                        total1 += parseInt(year21[l].times);
+                        total1 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/02/')){
+                    if(year13[l].date.match('/02/')){
                         trStr2 += '<tr>';  
-                        trStr2 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr2 += '<td>' + year21[l].times + '</td>';
+                        trStr2 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr2 += '<td>' + year13[l].times + '</td>';
                         trStr2 += '</tr>';  
-                        total2 += parseInt(year21[l].times);
+                        total2 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/03/')){
+                    if(year13[l].date.match('/03/')){
                         trStr3 += '<tr>';  
-                        trStr3 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr3 += '<td>' + year21[l].times + '</td>';
+                        trStr3 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr3 += '<td>' + year13[l].times + '</td>';
                         trStr3 += '</tr>'; 
-                        total3 += parseInt(year21[l].times);
+                        total3 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/04/')){
+                    if(year13[l].date.match('/04/')){
                         trStr4 += '<tr>';  
-                        trStr4 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr4 += '<td>' + year21[l].times + '</td>';
+                        trStr4 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr4 += '<td>' + year13[l].times + '</td>';
                         trStr4 += '</tr>';  
-                        total4 += parseInt(year21[l].times);
+                        total4 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/05/')){
+                    if(year13[l].date.match('/05/')){
                         trStr5 += '<tr>';  
-                        trStr5 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr5 += '<td>' + year21[l].times + '</td>';
+                        trStr5 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr5 += '<td>' + year13[l].times + '</td>';
                         trStr5 += '</tr>';  
-                        total5 += parseInt(year21[l].times);
+                        total5 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/06/')){
+                    if(year13[l].date.match('/06/')){
                         trStr6 += '<tr>';  
-                        trStr6 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr6 += '<td>' + year21[l].times + '</td>';
+                        trStr6 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr6 += '<td>' + year13[l].times + '</td>';
                         trStr6 += '</tr>';  
-                        total6 += parseInt(year21[l].times);
+                        total6 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/07/')){
+                    if(year13[l].date.match('/07/')){
                         trStr7 += '<tr>';  
-                        trStr7 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr7 += '<td>' + year21[l].times + '</td>';
+                        trStr7 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr7 += '<td>' + year13[l].times + '</td>';
                         trStr7 += '</tr>';  
-                        total7 += parseInt(year21[l].times);
+                        total7 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/08/')){
+                    if(year13[l].date.match('/08/')){
                         trStr8 += '<tr>';  
-                        trStr8 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr8 += '<td>' + year21[l].times + '</td>';
+                        trStr8 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr8 += '<td>' + year13[l].times + '</td>';
                         trStr8 += '</tr>';  
-                        total8 += parseInt(year21[l].times);
+                        total8 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/09/')){
+                    if(year13[l].date.match('/09/')){
                         trStr9 += '<tr>';  
-                        trStr9 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr9 += '<td>' + year21[l].times + '</td>';
+                        trStr9 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr9 += '<td>' + year13[l].times + '</td>';
                         trStr9 += '</tr>';  
-                        total9 += parseInt(year21[l].times);
+                        total9 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/10/')){
+                    if(year13[l].date.match('/10/')){
                         trStr10 += '<tr>';  
-                        trStr10 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr10 += '<td>' + year21[l].times + '</td>';
+                        trStr10 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr10 += '<td>' + year13[l].times + '</td>';
                         trStr10 += '</tr>';  
-                        total10 += parseInt(year21[l].times);
+                        total10 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/11/')){
+                    if(year13[l].date.match('/11/')){
                         trStr11 += '<tr>';  
-                        trStr11 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr11 += '<td>' + year21[l].times + '</td>';
+                        trStr11 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr11 += '<td>' + year13[l].times + '</td>';
                         trStr11 += '</tr>';  
-                        total11 += parseInt(year21[l].times);
+                        total11 += parseInt(year13[l].times);
                     }
-                    if(year21[l].date.match('/12/')){
+                    if(year13[l].date.match('/12/')){
                         trStr12 += '<tr>';  
-                        trStr12 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
-                        trStr12 += '<td>' + year21[l].times + '</td>';
+                        trStr12 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
+                        trStr12 += '<td>' + year13[l].times + '</td>';
                         trStr12 += '</tr>';  
-                        total12 += parseInt(year21[l].times);
-                    }
-                } 
-            } else if (queryString == "year=2020"){//year2020
-                for (let l = 0; l < year20.length; l ++) {//迴圈遍歷出year20物件中的每一個資料並顯示在對應的td中
-                    trStr13 += '<tr>';  
-                    trStr13 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                    trStr13 += '<td>' + year20[l].times + '</td>';
-                    trStr13 += '</tr>';
-                    if(year20[l].date.match('/01/')){
-                        trStr1 += '<tr>';  
-                        trStr1 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr1 += '<td>' + year20[l].times + '</td>';
-                        trStr1 += '</tr>';  
-                        total1 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/02/')){
-                        trStr2 += '<tr>';  
-                        trStr2 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr2 += '<td>' + year20[l].times + '</td>';
-                        trStr2 += '</tr>';  
-                        total2 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/03/')){
-                        trStr3 += '<tr>';  
-                        trStr3 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr3 += '<td>' + year20[l].times + '</td>';
-                        trStr3 += '</tr>'; 
-                        total3 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/04/')){
-                        trStr4 += '<tr>';  
-                        trStr4 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr4 += '<td>' + year20[l].times + '</td>';
-                        trStr4 += '</tr>';  
-                        total4 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/05/')){
-                        trStr5 += '<tr>';  
-                        trStr5 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr5 += '<td>' + year20[l].times + '</td>';
-                        trStr5 += '</tr>';  
-                        total5 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/06/')){
-                        trStr6 += '<tr>';  
-                        trStr6 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr6 += '<td>' + year20[l].times + '</td>';
-                        trStr6 += '</tr>';  
-                        total6 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/07/')){
-                        trStr7 += '<tr>';  
-                        trStr7 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr7 += '<td>' + year20[l].times + '</td>';
-                        trStr7 += '</tr>';  
-                        total7 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/08/')){
-                        trStr8 += '<tr>';  
-                        trStr8 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr8 += '<td>' + year20[l].times + '</td>';
-                        trStr8 += '</tr>';  
-                        total8 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/09/')){
-                        trStr9 += '<tr>';  
-                        trStr9 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr9 += '<td>' + year20[l].times + '</td>';
-                        trStr9 += '</tr>';  
-                        total9 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/10/')){
-                        trStr10 += '<tr>';  
-                        trStr10 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr10 += '<td>' + year20[l].times + '</td>';
-                        trStr10 += '</tr>';  
-                        total10 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/11/')){
-                        trStr11 += '<tr>';  
-                        trStr11 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr11 += '<td>' + year20[l].times + '</td>';
-                        trStr11 += '</tr>';  
-                        total11 += parseInt(year20[l].times);
-                    }
-                    if(year20[l].date.match('/12/')){
-                        trStr12 += '<tr>';  
-                        trStr12 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
-                        trStr12 += '<td>' + year20[l].times + '</td>';
-                        trStr12 += '</tr>';  
-                        total12 += parseInt(year20[l].times);
-                    }
-                } 
-            } else if (queryString == "year=2019"){//year2019
-                for (let l = 0; l < year19.length; l ++) {//迴圈遍歷出year19物件中的每一個資料並顯示在對應的td中
-                    trStr13 += '<tr>';  
-                    trStr13 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                    trStr13 += '<td>' + year19[l].times + '</td>';
-                    trStr13 += '</tr>';
-                    if(year19[l].date.match('/01/')){
-                        trStr1 += '<tr>';  
-                        trStr1 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr1 += '<td>' + year19[l].times + '</td>';
-                        trStr1 += '</tr>';  
-                        total1 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/02/')){
-                        trStr2 += '<tr>';  
-                        trStr2 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr2 += '<td>' + year19[l].times + '</td>';
-                        trStr2 += '</tr>';  
-                        total2 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/03/')){
-                        trStr3 += '<tr>';  
-                        trStr3 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr3 += '<td>' + year19[l].times + '</td>';
-                        trStr3 += '</tr>'; 
-                        total3 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/04/')){
-                        trStr4 += '<tr>';  
-                        trStr4 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr4 += '<td>' + year19[l].times + '</td>';
-                        trStr4 += '</tr>';  
-                        total4 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/05/')){
-                        trStr5 += '<tr>';  
-                        trStr5 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr5 += '<td>' + year19[l].times + '</td>';
-                        trStr5 += '</tr>';  
-                        total5 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/06/')){
-                        trStr6 += '<tr>';  
-                        trStr6 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr6 += '<td>' + year19[l].times + '</td>';
-                        trStr6 += '</tr>';  
-                        total6 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/07/')){
-                        trStr7 += '<tr>';  
-                        trStr7 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr7 += '<td>' + year19[l].times + '</td>';
-                        trStr7 += '</tr>';  
-                        total7 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/08/')){
-                        trStr8 += '<tr>';  
-                        trStr8 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr8 += '<td>' + year19[l].times + '</td>';
-                        trStr8 += '</tr>';  
-                        total8 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/09/')){
-                        trStr9 += '<tr>';  
-                        trStr9 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr9 += '<td>' + year19[l].times + '</td>';
-                        trStr9 += '</tr>';  
-                        total9 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/10/')){
-                        trStr10 += '<tr>';  
-                        trStr10 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr10 += '<td>' + year19[l].times + '</td>';
-                        trStr10 += '</tr>';  
-                        total10 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/11/')){
-                        trStr11 += '<tr>';  
-                        trStr11 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr11 += '<td>' + year19[l].times + '</td>';
-                        trStr11 += '</tr>';  
-                        total11 += parseInt(year19[l].times);
-                    }
-                    if(year19[l].date.match('/12/')){
-                        trStr12 += '<tr>';  
-                        trStr12 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
-                        trStr12 += '<td>' + year19[l].times + '</td>';
-                        trStr12 += '</tr>';  
-                        total12 += parseInt(year19[l].times);
-                    }
-                } 
-            } else if (queryString == "year=2018"){//year2018
-                for (let l = 0; l < year18.length; l ++) {//迴圈遍歷出year18物件中的每一個資料並顯示在對應的td中
-                    trStr13 += '<tr>';  
-                    trStr13 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                    trStr13 += '<td>' + year18[l].times + '</td>';
-                    trStr13 += '</tr>';
-                    if(year18[l].date.match('/01/')){
-                        trStr1 += '<tr>';  
-                        trStr1 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr1 += '<td>' + year18[l].times + '</td>';
-                        trStr1 += '</tr>';  
-                        total1 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/02/')){
-                        trStr2 += '<tr>';  
-                        trStr2 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr2 += '<td>' + year18[l].times + '</td>';
-                        trStr2 += '</tr>';  
-                        total2 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/03/')){
-                        trStr3 += '<tr>';  
-                        trStr3 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr3 += '<td>' + year18[l].times + '</td>';
-                        trStr3 += '</tr>'; 
-                        total3 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/04/')){
-                        trStr4 += '<tr>';  
-                        trStr4 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr4 += '<td>' + year18[l].times + '</td>';
-                        trStr4 += '</tr>';  
-                        total4 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/05/')){
-                        trStr5 += '<tr>';  
-                        trStr5 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr5 += '<td>' + year18[l].times + '</td>';
-                        trStr5 += '</tr>';  
-                        total5 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/06/')){
-                        trStr6 += '<tr>';  
-                        trStr6 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr6 += '<td>' + year18[l].times + '</td>';
-                        trStr6 += '</tr>';  
-                        total6 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/07/')){
-                        trStr7 += '<tr>';  
-                        trStr7 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr7 += '<td>' + year18[l].times + '</td>';
-                        trStr7 += '</tr>';  
-                        total7 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/08/')){
-                        trStr8 += '<tr>';  
-                        trStr8 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr8 += '<td>' + year18[l].times + '</td>';
-                        trStr8 += '</tr>';  
-                        total8 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/09/')){
-                        trStr9 += '<tr>';  
-                        trStr9 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr9 += '<td>' + year18[l].times + '</td>';
-                        trStr9 += '</tr>';  
-                        total9 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/10/')){
-                        trStr10 += '<tr>';  
-                        trStr10 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr10 += '<td>' + year18[l].times + '</td>';
-                        trStr10 += '</tr>';  
-                        total10 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/11/')){
-                        trStr11 += '<tr>';  
-                        trStr11 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr11 += '<td>' + year18[l].times + '</td>';
-                        trStr11 += '</tr>';  
-                        total11 += parseInt(year18[l].times);
-                    }
-                    if(year18[l].date.match('/12/')){
-                        trStr12 += '<tr>';  
-                        trStr12 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
-                        trStr12 += '<td>' + year18[l].times + '</td>';
-                        trStr12 += '</tr>';  
-                        total12 += parseInt(year18[l].times);
+                        total12 += parseInt(year13[l].times);
                     }
                 } 
             } else if (queryString == "year=2017"){//year2017
@@ -542,95 +270,368 @@ window.onload = function () {
                         total12 += parseInt(year17[l].times);
                     }
                 } 
-            } else if (queryString == "" || "year=2013"){//year2013
-                for (let l = 0; l < year13.length; l ++) {//迴圈遍歷出year13物件中的每一個資料並顯示在對應的td中
+            } else if (queryString == "year=2018"){//year2018
+                for (let l = 0; l < year18.length; l ++) {//迴圈遍歷出year18物件中的每一個資料並顯示在對應的td中
                     trStr13 += '<tr>';  
-                    trStr13 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                    trStr13 += '<td>' + year13[l].times + '</td>';
+                    trStr13 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year18[l].times + '</td>';
                     trStr13 += '</tr>';
-                    if(year13[l].date.match('/01/')){
+                    if(year18[l].date.match('/01/')){
                         trStr1 += '<tr>';  
-                        trStr1 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr1 += '<td>' + year13[l].times + '</td>';
+                        trStr1 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr1 += '<td>' + year18[l].times + '</td>';
                         trStr1 += '</tr>';  
-                        total1 += parseInt(year13[l].times);
+                        total1 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/02/')){
+                    if(year18[l].date.match('/02/')){
                         trStr2 += '<tr>';  
-                        trStr2 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr2 += '<td>' + year13[l].times + '</td>';
+                        trStr2 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr2 += '<td>' + year18[l].times + '</td>';
                         trStr2 += '</tr>';  
-                        total2 += parseInt(year13[l].times);
+                        total2 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/03/')){
+                    if(year18[l].date.match('/03/')){
                         trStr3 += '<tr>';  
-                        trStr3 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr3 += '<td>' + year13[l].times + '</td>';
+                        trStr3 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr3 += '<td>' + year18[l].times + '</td>';
                         trStr3 += '</tr>'; 
-                        total3 += parseInt(year13[l].times);
+                        total3 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/04/')){
+                    if(year18[l].date.match('/04/')){
                         trStr4 += '<tr>';  
-                        trStr4 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr4 += '<td>' + year13[l].times + '</td>';
+                        trStr4 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr4 += '<td>' + year18[l].times + '</td>';
                         trStr4 += '</tr>';  
-                        total4 += parseInt(year13[l].times);
+                        total4 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/05/')){
+                    if(year18[l].date.match('/05/')){
                         trStr5 += '<tr>';  
-                        trStr5 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr5 += '<td>' + year13[l].times + '</td>';
+                        trStr5 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr5 += '<td>' + year18[l].times + '</td>';
                         trStr5 += '</tr>';  
-                        total5 += parseInt(year13[l].times);
+                        total5 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/06/')){
+                    if(year18[l].date.match('/06/')){
                         trStr6 += '<tr>';  
-                        trStr6 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr6 += '<td>' + year13[l].times + '</td>';
+                        trStr6 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr6 += '<td>' + year18[l].times + '</td>';
                         trStr6 += '</tr>';  
-                        total6 += parseInt(year13[l].times);
+                        total6 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/07/')){
+                    if(year18[l].date.match('/07/')){
                         trStr7 += '<tr>';  
-                        trStr7 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr7 += '<td>' + year13[l].times + '</td>';
+                        trStr7 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr7 += '<td>' + year18[l].times + '</td>';
                         trStr7 += '</tr>';  
-                        total7 += parseInt(year13[l].times);
+                        total7 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/08/')){
+                    if(year18[l].date.match('/08/')){
                         trStr8 += '<tr>';  
-                        trStr8 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr8 += '<td>' + year13[l].times + '</td>';
+                        trStr8 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr8 += '<td>' + year18[l].times + '</td>';
                         trStr8 += '</tr>';  
-                        total8 += parseInt(year13[l].times);
+                        total8 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/09/')){
+                    if(year18[l].date.match('/09/')){
                         trStr9 += '<tr>';  
-                        trStr9 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr9 += '<td>' + year13[l].times + '</td>';
+                        trStr9 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr9 += '<td>' + year18[l].times + '</td>';
                         trStr9 += '</tr>';  
-                        total9 += parseInt(year13[l].times);
+                        total9 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/10/')){
+                    if(year18[l].date.match('/10/')){
                         trStr10 += '<tr>';  
-                        trStr10 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr10 += '<td>' + year13[l].times + '</td>';
+                        trStr10 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr10 += '<td>' + year18[l].times + '</td>';
                         trStr10 += '</tr>';  
-                        total10 += parseInt(year13[l].times);
+                        total10 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/11/')){
+                    if(year18[l].date.match('/11/')){
                         trStr11 += '<tr>';  
-                        trStr11 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr11 += '<td>' + year13[l].times + '</td>';
+                        trStr11 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr11 += '<td>' + year18[l].times + '</td>';
                         trStr11 += '</tr>';  
-                        total11 += parseInt(year13[l].times);
+                        total11 += parseInt(year18[l].times);
                     }
-                    if(year13[l].date.match('/12/')){
+                    if(year18[l].date.match('/12/')){
                         trStr12 += '<tr>';  
-                        trStr12 += '<td>' + year13[l].date + '</td>';//資料表的主鍵值
-                        trStr12 += '<td>' + year13[l].times + '</td>';
+                        trStr12 += '<td>' + year18[l].date + '</td>';//資料表的主鍵值
+                        trStr12 += '<td>' + year18[l].times + '</td>';
                         trStr12 += '</tr>';  
-                        total12 += parseInt(year13[l].times);
+                        total12 += parseInt(year18[l].times);
+                    }
+                } 
+            } else if (queryString == "year=2019"){//year2019
+                for (let l = 0; l < year19.length; l ++) {//迴圈遍歷出year19物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year19[l].times + '</td>';
+                    trStr13 += '</tr>';
+                    if(year19[l].date.match('/01/')){
+                        trStr1 += '<tr>';  
+                        trStr1 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr1 += '<td>' + year19[l].times + '</td>';
+                        trStr1 += '</tr>';  
+                        total1 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/02/')){
+                        trStr2 += '<tr>';  
+                        trStr2 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr2 += '<td>' + year19[l].times + '</td>';
+                        trStr2 += '</tr>';  
+                        total2 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/03/')){
+                        trStr3 += '<tr>';  
+                        trStr3 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr3 += '<td>' + year19[l].times + '</td>';
+                        trStr3 += '</tr>'; 
+                        total3 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/04/')){
+                        trStr4 += '<tr>';  
+                        trStr4 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr4 += '<td>' + year19[l].times + '</td>';
+                        trStr4 += '</tr>';  
+                        total4 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/05/')){
+                        trStr5 += '<tr>';  
+                        trStr5 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr5 += '<td>' + year19[l].times + '</td>';
+                        trStr5 += '</tr>';  
+                        total5 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/06/')){
+                        trStr6 += '<tr>';  
+                        trStr6 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr6 += '<td>' + year19[l].times + '</td>';
+                        trStr6 += '</tr>';  
+                        total6 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/07/')){
+                        trStr7 += '<tr>';  
+                        trStr7 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr7 += '<td>' + year19[l].times + '</td>';
+                        trStr7 += '</tr>';  
+                        total7 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/08/')){
+                        trStr8 += '<tr>';  
+                        trStr8 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr8 += '<td>' + year19[l].times + '</td>';
+                        trStr8 += '</tr>';  
+                        total8 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/09/')){
+                        trStr9 += '<tr>';  
+                        trStr9 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr9 += '<td>' + year19[l].times + '</td>';
+                        trStr9 += '</tr>';  
+                        total9 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/10/')){
+                        trStr10 += '<tr>';  
+                        trStr10 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr10 += '<td>' + year19[l].times + '</td>';
+                        trStr10 += '</tr>';  
+                        total10 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/11/')){
+                        trStr11 += '<tr>';  
+                        trStr11 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr11 += '<td>' + year19[l].times + '</td>';
+                        trStr11 += '</tr>';  
+                        total11 += parseInt(year19[l].times);
+                    }
+                    if(year19[l].date.match('/12/')){
+                        trStr12 += '<tr>';  
+                        trStr12 += '<td>' + year19[l].date + '</td>';//資料表的主鍵值
+                        trStr12 += '<td>' + year19[l].times + '</td>';
+                        trStr12 += '</tr>';  
+                        total12 += parseInt(year19[l].times);
+                    }
+                } 
+            } else if (queryString == "year=2020"){//year2020
+                for (let l = 0; l < year20.length; l ++) {//迴圈遍歷出year20物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year20[l].times + '</td>';
+                    trStr13 += '</tr>';
+                    if(year20[l].date.match('/01/')){
+                        trStr1 += '<tr>';  
+                        trStr1 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr1 += '<td>' + year20[l].times + '</td>';
+                        trStr1 += '</tr>';  
+                        total1 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/02/')){
+                        trStr2 += '<tr>';  
+                        trStr2 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr2 += '<td>' + year20[l].times + '</td>';
+                        trStr2 += '</tr>';  
+                        total2 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/03/')){
+                        trStr3 += '<tr>';  
+                        trStr3 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr3 += '<td>' + year20[l].times + '</td>';
+                        trStr3 += '</tr>'; 
+                        total3 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/04/')){
+                        trStr4 += '<tr>';  
+                        trStr4 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr4 += '<td>' + year20[l].times + '</td>';
+                        trStr4 += '</tr>';  
+                        total4 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/05/')){
+                        trStr5 += '<tr>';  
+                        trStr5 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr5 += '<td>' + year20[l].times + '</td>';
+                        trStr5 += '</tr>';  
+                        total5 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/06/')){
+                        trStr6 += '<tr>';  
+                        trStr6 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr6 += '<td>' + year20[l].times + '</td>';
+                        trStr6 += '</tr>';  
+                        total6 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/07/')){
+                        trStr7 += '<tr>';  
+                        trStr7 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr7 += '<td>' + year20[l].times + '</td>';
+                        trStr7 += '</tr>';  
+                        total7 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/08/')){
+                        trStr8 += '<tr>';  
+                        trStr8 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr8 += '<td>' + year20[l].times + '</td>';
+                        trStr8 += '</tr>';  
+                        total8 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/09/')){
+                        trStr9 += '<tr>';  
+                        trStr9 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr9 += '<td>' + year20[l].times + '</td>';
+                        trStr9 += '</tr>';  
+                        total9 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/10/')){
+                        trStr10 += '<tr>';  
+                        trStr10 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr10 += '<td>' + year20[l].times + '</td>';
+                        trStr10 += '</tr>';  
+                        total10 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/11/')){
+                        trStr11 += '<tr>';  
+                        trStr11 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr11 += '<td>' + year20[l].times + '</td>';
+                        trStr11 += '</tr>';  
+                        total11 += parseInt(year20[l].times);
+                    }
+                    if(year20[l].date.match('/12/')){
+                        trStr12 += '<tr>';  
+                        trStr12 += '<td>' + year20[l].date + '</td>';//資料表的主鍵值
+                        trStr12 += '<td>' + year20[l].times + '</td>';
+                        trStr12 += '</tr>';  
+                        total12 += parseInt(year20[l].times);
+                    }
+                } 
+            } else if (queryString == "" || "year=2021"){//year2021
+                for (let l = 0; l < year21.length; l ++) {//迴圈遍歷出year21物件中的每一個資料並顯示在對應的td中
+                    trStr13 += '<tr>';  
+                    trStr13 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                    trStr13 += '<td>' + year21[l].times + '</td>';
+                    trStr13 += '</tr>';
+                    if(year21[l].date.match('/01/')){
+                        trStr1 += '<tr>';  
+                        trStr1 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr1 += '<td>' + year21[l].times + '</td>';
+                        trStr1 += '</tr>';  
+                        total1 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/02/')){
+                        trStr2 += '<tr>';  
+                        trStr2 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr2 += '<td>' + year21[l].times + '</td>';
+                        trStr2 += '</tr>';  
+                        total2 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/03/')){
+                        trStr3 += '<tr>';  
+                        trStr3 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr3 += '<td>' + year21[l].times + '</td>';
+                        trStr3 += '</tr>'; 
+                        total3 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/04/')){
+                        trStr4 += '<tr>';  
+                        trStr4 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr4 += '<td>' + year21[l].times + '</td>';
+                        trStr4 += '</tr>';  
+                        total4 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/05/')){
+                        trStr5 += '<tr>';  
+                        trStr5 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr5 += '<td>' + year21[l].times + '</td>';
+                        trStr5 += '</tr>';  
+                        total5 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/06/')){
+                        trStr6 += '<tr>';  
+                        trStr6 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr6 += '<td>' + year21[l].times + '</td>';
+                        trStr6 += '</tr>';  
+                        total6 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/07/')){
+                        trStr7 += '<tr>';  
+                        trStr7 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr7 += '<td>' + year21[l].times + '</td>';
+                        trStr7 += '</tr>';  
+                        total7 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/08/')){
+                        trStr8 += '<tr>';  
+                        trStr8 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr8 += '<td>' + year21[l].times + '</td>';
+                        trStr8 += '</tr>';  
+                        total8 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/09/')){
+                        trStr9 += '<tr>';  
+                        trStr9 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr9 += '<td>' + year21[l].times + '</td>';
+                        trStr9 += '</tr>';  
+                        total9 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/10/')){
+                        trStr10 += '<tr>';  
+                        trStr10 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr10 += '<td>' + year21[l].times + '</td>';
+                        trStr10 += '</tr>';  
+                        total10 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/11/')){
+                        trStr11 += '<tr>';  
+                        trStr11 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr11 += '<td>' + year21[l].times + '</td>';
+                        trStr11 += '</tr>';  
+                        total11 += parseInt(year21[l].times);
+                    }
+                    if(year21[l].date.match('/12/')){
+                        trStr12 += '<tr>';  
+                        trStr12 += '<td>' + year21[l].date + '</td>';//資料表的主鍵值
+                        trStr12 += '<td>' + year21[l].times + '</td>';
+                        trStr12 += '</tr>';  
+                        total12 += parseInt(year21[l].times);
                     }
                 } 
             }
@@ -665,7 +666,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -679,7 +680,7 @@ window.onload = function () {
                         extend:    'csvHtml5',
                         charset:   'UTF-8',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -692,7 +693,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -705,7 +706,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -718,7 +719,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -731,7 +732,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -744,7 +745,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -757,7 +758,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -770,7 +771,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -783,7 +784,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -796,7 +797,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -809,7 +810,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
@@ -823,7 +824,7 @@ window.onload = function () {
                     {
                         extend:    'csvHtml5',
                         bom:        true,
-                        text:      '<i class="fa fa-file-text-o fa-2x"></i>',
+                        text:      '<img src="file-alt-solid.svg" alt="file" style="width:25px;height:25px;">',
                         titleAttr: 'CSV'
                     }
                 ]
