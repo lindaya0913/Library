@@ -1,5 +1,5 @@
 window.onload = function () {
-    let txt = "20210106.txt";/*txt文件url，本地的就寫本地的位置，如果是服務器的就寫服務器的路徑*/
+    let txt = "Ebook.txt";/*txt文件url，本地的就寫本地的位置，如果是服務器的就寫服務器的路徑*/
     let request = new XMLHttpRequest();
     request.open("get", txt);/*設置請求方法與路徑*/
     request.send(null);/*不發送數據到服務器*/
