@@ -6,8 +6,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script> 
@@ -16,39 +14,44 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>  
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a8a7e5877e.js" crossorigin="anonymous"></script>
+
     <script src="controller.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-1 col-sm-2">
-                <h3 id="status"></h3>  
-            </div>
-            <div class="col-md-6 col-sm-10">
-                <h3>電子書使用統計</h3>  
-            </div>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h2 class="navbar-brand" id="status"></h2>
+        <h3 class="navbar-brand">電子書使用統計</h3>
+    </nav><br>
+    <div class="container">
         <div class="row">
             <div class="col">
                 <form name="form" action="page.html?year" method="get">
-                    <label for="year">選擇查詢年分:</label>
-                    <select class="form-select" id="select" name="year">
-                        <option value="2013">2013</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021" selected>2021</option>
-                    </select>
-                    <button class="btn btn-primary btn-sm" type='submit' value="Submit">Sent</button>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">選擇查詢年分:</span>
+                        </div>
+                        <select class="form-select" id="year" name="year" onChange="saveValue(this);">
+                            <option value="2013">2013</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021" selected>2021</option>
+                        </select>
+                        <div class="input-group-prepend">
+                            <button class="btn btn-primary" type='submit' value="Submit">Sent</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
         <div class="row">
-            <table id="total">
-                <tr>
+            <table class="table" id="total">
+                <tr class="table-info">
                   <th>Total</th>
                   <th>1月</th>
                   <th>2月</th>
@@ -72,7 +75,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <table id="table_id13">
+                <table class="table table-striped" id="table_id13">
                     <thead>
                         <tr>
                             <th>總表格日期</th>
@@ -87,174 +90,176 @@
         <div class="text-center">
             <h3 style="background-color:orange;font-weight: bold;">1~12月電子書使用次數細項</h3> 
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="row">
-                <div class="col">
-                    <table id="table_id1">
-                        <thead>
-                            <tr>
-                                <th>1月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id1">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col">
-                    <table id="table_id2">
-                        <thead>
-                            <tr>
-                                <th>2月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id2">
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped" id="table_id1">
+                    <thead>
+                        <tr>
+                            <th>1月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id1">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table table-striped" id="table_id2">
+                    <thead>
+                        <tr>
+                            <th>2月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id2">
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="row">
-                <div class="col">
-                    <table id="table_id3">
-                        <thead>
-                            <tr>
-                                <th>3月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id3">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col">
-                    <table id="table_id4">
-                        <thead>
-                            <tr>
-                                <th>4月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id4">
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped" id="table_id3">
+                    <thead>
+                        <tr>
+                            <th>3月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id3">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table table-striped" id="table_id4">
+                    <thead>
+                        <tr>
+                            <th>4月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id4">
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="row">
-                <div class="col">
-                    <table id="table_id5">
-                        <thead>
-                            <tr>
-                                <th>5月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id5">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col">
-                    <table id="table_id6">
-                        <thead>
-                            <tr>
-                                <th>6月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id6">
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped"id="table_id5">
+                    <thead>
+                        <tr>
+                            <th>5月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id5">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table table-striped" id="table_id6">
+                    <thead>
+                        <tr>
+                            <th>6月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id6">
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="row">
-                <div class="col">
-                    <table id="table_id7">
-                        <thead>
-                            <tr>
-                                <th>7月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id7">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col">
-                    <table id="table_id8">
-                        <thead>
-                            <tr>
-                                <th>8月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id8">
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped" id="table_id7">
+                    <thead>
+                        <tr>
+                            <th>7月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id7">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table table-striped" id="table_id8">
+                    <thead>
+                        <tr>
+                            <th>8月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id8">
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="row">
-                <div class="col">
-                    <table id="table_id9">
-                        <thead>
-                            <tr>
-                                <th>9月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id9">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col">
-                    <table id="table_id10">
-                        <thead>
-                            <tr>
-                                <th>10月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id10">
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped" id="table_id9">
+                    <thead>
+                        <tr>
+                            <th>9月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id9">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table table-striped" id="table_id10">
+                    <thead>
+                        <tr>
+                            <th>10月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id10">
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="row">
-                <div class="col">
-                    <table id="table_id11">
-                        <thead>
-                            <tr>
-                                <th>11月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id11">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col">
-                    <table id="table_id12">
-                        <thead>
-                            <tr>
-                                <th>12月</th>
-                                <th>次數</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_id12">
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped" id="table_id11">
+                    <thead>
+                        <tr>
+                            <th>11月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id11">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table table-striped" id="table_id12">
+                    <thead>
+                        <tr>
+                            <th>12月</th>
+                            <th>次數</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_id12">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('year').value = getSavedValue('year')
+        function saveValue(e) {
+            var id = e.id;
+            var val = e.value;
+            sessionStorage.setItem(id, val);
+        }
+        function getSavedValue(v) {
+            if (!sessionStorage.getItem(v)) {
+                return "2021";
+            }
+            return sessionStorage.getItem(v);
+        }
+    </script>
 </body>
 </html>
