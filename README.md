@@ -5,11 +5,11 @@
 2. 同日期者，次數需加總，僅呈現一筆資料。
 3. 需有選單，可選擇年度，選擇後呈現該年度資料。
 4. 有匯出當年度全部資料 CSV 檔的功能。
+5. 自動生成新年度的選單。
 ### 功能介紹與注意事項
 - 後端數據連接 txt 檔案
 - 解析資料 index 偶數為次數(times)，奇數為日期(date)
 - 轉成 Object 型態，並分類各年分與各月份
 - 動態拼接13個 table，包含總表格與12個月分
-- 目前包含2013、2017、2018、2019、2020和2021年分，未來需手動增加年分與判斷式
 
-![image](https://github.com/lindaya0913/Library/blob/main/library.png)
+![image](https://github.com/lindaya0913/Library/blob/main/library.jpeg)

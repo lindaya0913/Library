@@ -20,6 +20,16 @@
 
     <script src="controller.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        var Today = new Date();
+        var Tyear = Today.getFullYear(); 
+        outstr = "<option value='" + 2013 + "'>2013</option>";
+        for(var year = 2017;year < Tyear;year ++){
+            outstr += "<option value ='" + year + "'>" + year + "</option>";
+        }
+        outstr += "<option selected value ='" + Tyear + "'>" + Tyear + "</option>";
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,15 +45,12 @@
                           <span class="input-group-text">選擇查詢年分:</span>
                         </div>
                         <select class="form-select" id="year" name="year" onChange="saveValue(this);">
-                            <option value="2013">2013</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021" selected>2021</option>
+                            <script> 
+                                document.write(outstr)
+                            </script>
                         </select>
                         <div class="input-group-prepend">
-                            <button class="btn btn-primary" type='submit' value="Submit">Sent</button>
+                            <button class="btn btn-primary" type='submit' value="Submit">Search</button>
                         </div>
                     </div>
                 </form>
@@ -248,6 +255,9 @@
         </div>
     </div>
     <script>
+        var Today = new Date();
+        var Tyear = Today.getFullYear();
+
         document.getElementById('year').value = getSavedValue('year')
         function saveValue(e) {
             var id = e.id;
@@ -256,7 +266,7 @@
         }
         function getSavedValue(v) {
             if (!sessionStorage.getItem(v)) {
-                return "2021";
+                return Tyear.toString();
             }
             return sessionStorage.getItem(v);
         }

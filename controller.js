@@ -1,17 +1,24 @@
 window.onload = function () {
-    let txt = "Ebook.txt";/*txt文件url，本地的就寫本地的位置，如果是服務器的就寫服務器的路徑*/
+    let txt = "record.txt";/*txt 文件 url，本地的就寫本地的位置，如果是服務器的就寫服務器的路徑*/
     let request = new XMLHttpRequest();
     request.open("get", txt);/*設置請求方法與路徑*/
     request.send(null);/*不發送數據到服務器*/
-    request.onload = function () {/*XHR對象獲取到返回信息後執行*/
+    request.onload = function () {/*XHR 對象獲取到返回信息後執行*/
         if (request.status == 200) {/*返回狀態為200，即為數據獲取成功*/
             let splitResponse = request.responseText.split("\n");/*切割一行一行*/
-            let times = splitResponse.filter((item, index) => index % 2 == 0);/*index偶數為次數*/
-            let date = splitResponse.filter((item, index) => index % 2 != 0);/*index奇數為日期*/
-            let year13 = [], year17 = [], year18 = [], year19 = [], year20 = [], year21 = [];
-            let a = 0, b = 0, c = 0, d = 0, e = 0, f = 0;
+            let times = splitResponse.filter((item, index) => index % 2 == 0);/*index 偶數為次數*/
+            let date = splitResponse.filter((item, index) => index % 2 != 0);/*index 奇數為日期*/
+            let year2013 = [];
+
+            //自動生成2017到今年年分的 year 變數
+            var Today = new Date();
+            var Tyear = Today.getFullYear(); 
+            for(var year = 2017;year <= Tyear;year ++){
+                window['year'+ year] = [];
+            }
+
             times.shift()/*去掉空格*/
-            date = date.map(x => x.slice(1,11))/*選取YYYY/MM/DD*/
+            date = date.map(x => x.slice(1,11))/*選取 YYYY/MM/DD*/
 
             let data = [];
             for (let n = 0; n < times.length; n ++) {
@@ -22,7 +29,7 @@ window.onload = function () {
             let obj = {};
             let currentDate = "";
             let currentTimes = 0;
-            for(let i = 0; i< data.length-1; i++) {
+            for(let i = 0; i < data.length - 1; i++) {
                 if (data[i].date === data[i+1].date) {
                     currentTimes = (currentTimes === 0 ? parseInt(data[i].times) : currentTimes) + parseInt(data[i+1].times)
                     currentDate = data[i].date
@@ -43,30 +50,13 @@ window.onload = function () {
             }
 
             //分隔年分
-            for (let m = 0; m < new_data.length; m ++) {
-                if(new_data[m].date.match('2013')){
-                    year13[a] = new_data[m];
-                    a += 1;
-                }
-                if(new_data[m].date.match('2017')){
-                    year17[b] = new_data[m];
-                    b += 1;
-                }
-                if(new_data[m].date.match('2018')){
-                    year18[c] = new_data[m];
-                    c += 1;
-                }
-                if(new_data[m].date.match('2019')){
-                    year19[d] = new_data[m];
-                    d += 1;
-                }
-                if(new_data[m].date.match('2020')){
-                    year20[e] = new_data[m];
-                    e += 1;
-                }
-                if(new_data[m].date.match('2021')){
-                    year21[f] = new_data[m];
-                    f += 1;
+            for(var year = 2017;year <= Tyear;year ++){
+                for (let m = 0; m < new_data.length; m ++) {
+                    if(new_data[m].date.match('2013')){
+                        year2013.push(new_data[m])
+                    }else if(new_data[m].date.match(year.toString())){
+                        window['year'+ year].push(new_data[m])
+                    }
                 }
             }
 
@@ -78,41 +68,28 @@ window.onload = function () {
             if (queries!=""){
                 document.getElementById("status").innerHTML = queries[1];
             }else{
-                document.getElementById("status").innerHTML = "2021";
+                document.getElementById("status").innerHTML = Tyear.toString();
             }
-            console.log("queryString", queryString)
-            console.log("queries", queries)
+            // console.log("queryString", queryString)
+            // console.log("queries", queries)
+
             //13 tables + 12 totals
             let trStr1 = '', trStr2 = '', trStr3 = '', trStr4 = '', trStr5 = '', trStr6 = '', trStr7 = '', 
                 trStr8 = '', trStr9 = '', trStr10 = '', trStr11 = '', trStr12 = '', trStr13 = '', total = '';
             let alltotal = 0, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total6 = 0,
                 total7 = 0, total8 = 0, total9 = 0, total10 = 0, total11 = 0, total12 = 0;
             
-            //判斷選擇哪一年以動態拼接tables
-            switch(queryString){
-                case "year=2013":
-                    targetYear = year13;
-                    break;
-                case "year=2017":
-                    targetYear = year17;
-                    break;
-                case "year=2018":
-                    targetYear = year18;
-                    break;
-                case "year=2019":
-                    targetYear = year19;
-                    break;
-                case "year=2020":
-                    targetYear = year20;
-                    break;
-                case "year=2021":
-                    targetYear = year21;
-                    break;
-                default:
-                    targetYear = year21;
+            let targetYear= window['year'+ Tyear]
+            //判斷選擇哪一年以動態拼接 tables
+            for(var year = 2017;year <= Tyear;year ++){
+                if(queryString == "year=2013"){
+                    targetYear = year2013;
+                }else if(queryString == "year="+ year.toString()){
+                    targetYear = window['year'+ year];
+                }
             }
 
-            for (let l = 0; l < targetYear.length; l ++) {//迴圈遍歷出year21物件中的每一個資料並顯示在對應的td中
+            for (let l = 0; l < targetYear.length; l ++) {//迴圈遍歷出 year 物件中的每一個資料並顯示在對應的 td 中
                 trStr13 += '<tr>';  
                 trStr13 += '<td>' + targetYear[l].date + '</td>';//資料表的主鍵值
                 trStr13 += '<td>' + targetYear[l].times + '</td>';
