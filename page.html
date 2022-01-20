@@ -24,11 +24,11 @@
     <script>
         var Today = new Date();
         var Tyear = Today.getFullYear(); 
-        outstr = "<option value='" + 2013 + "'>2013</option>";
-        for(var year = 2017;year < Tyear;year ++){
+        outstr = "<option selected value ='" + Tyear + "'>" + Tyear + "</option>";
+        for(var year = Tyear-1;year >= 2017;year --){
             outstr += "<option value ='" + year + "'>" + year + "</option>";
         }
-        outstr += "<option selected value ='" + Tyear + "'>" + Tyear + "</option>";
+        outstr += "<option value='" + 2013 + "'>2013</option>";
     </script>
 </head>
 <body>
